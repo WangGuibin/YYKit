@@ -28,6 +28,11 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     return [[self dataUsingEncoding:NSUTF8StringEncoding] md4String];
 }
 
+/*!
+ *  md5加密算法
+ *
+ *  @return 加密后的字符(一般用于校验)
+ */
 - (NSString *)md5String {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] md5String];
 }
@@ -95,6 +100,11 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
+/*!
+ *  URL编码
+ *
+ *  @return 返回字符串
+ */
 - (NSString *)stringByURLEncode {
     if ([self respondsToSelector:@selector(stringByAddingPercentEncodingWithAllowedCharacters:)]) {
         /**
@@ -148,6 +158,11 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     }
 }
 
+/*!
+ *  URL解码
+ *
+ *  @return 字符串
+ */
 - (NSString *)stringByURLDecode {
     if ([self respondsToSelector:@selector(stringByRemovingPercentEncoding)]) {
         return [self stringByRemovingPercentEncoding];
@@ -168,6 +183,11 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     }
 }
 
+/*!
+ *  HTML 转义 为字符串
+ *
+ *  @return 字符串
+ */
 - (NSString *)stringByEscapingHTML {
     NSUInteger len = self.length;
     if (!len) return self;
@@ -198,6 +218,7 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     return result;
 }
 
+
 - (CGSize)sizeForFont:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode {
     CGSize result;
     if (!font) font = [UIFont systemFontOfSize:12];
@@ -222,11 +243,26 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     return result;
 }
 
+/*!
+ *  根据字体自适应文本宽高
+ *
+ *  @param font 字体大小
+ *
+ *  @return 文本宽度
+ */
 - (CGFloat)widthForFont:(UIFont *)font {
     CGSize size = [self sizeForFont:font size:CGSizeMake(HUGE, HUGE) mode:NSLineBreakByWordWrapping];
     return size.width;
 }
 
+/*!
+ *  根据字体和给定的文本宽度 自适应高度
+ *
+ *  @param font  字体大小
+ *  @param width 宽度
+ *
+ *  @return 高度
+ */
 - (CGFloat)heightForFont:(UIFont *)font width:(CGFloat)width {
     CGSize size = [self sizeForFont:font size:CGSizeMake(width, HUGE) mode:NSLineBreakByWordWrapping];
     return size.height;
@@ -238,6 +274,13 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     return ([pattern numberOfMatchesInString:self options:0 range:NSMakeRange(0, self.length)] > 0);
 }
 
+/*!
+ *  遍历正则表达式
+ *
+ *  @param regex   正则
+ *  @param options 条件
+ *  @param block   匹配结果的block
+ */
 - (void)enumerateRegexMatches:(NSString *)regex
                       options:(NSRegularExpressionOptions)options
                    usingBlock:(void (^)(NSString *match, NSRange matchRange, BOOL *stop))block {
@@ -257,10 +300,22 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     return [pattern stringByReplacingMatchesInString:self options:0 range:NSMakeRange(0, [self length]) withTemplate:replacement];
 }
 
+/*!
+ *  判断字符串里是否包含表情
+ *
+ *  @return 是 与 否
+ */
 - (BOOL)containsEmoji {
     return [self containsEmojiForSystemVersion:kSystemVersion];
 }
 
+/*!
+ *  根据系统版本判断表情包是否包含某个表情
+ *
+ *  @param systemVersion 系统版本
+ *
+ *  @return 是 or 否
+ */
 - (BOOL)containsEmojiForSystemVersion:(float)systemVersion {
     // If detected, it MUST contains emoji; otherwise it MAY not contains emoji.
     static NSMutableCharacterSet *minSet8_3, *minSetOld;
@@ -325,9 +380,11 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     return self.numberValue.longValue;
 }
 
+
 - (unsigned long) unsignedLongValue {
     return self.numberValue.unsignedLongValue;
 }
+
 
 - (unsigned long long) unsignedLongLongValue {
     return self.numberValue.unsignedLongLongValue;
@@ -337,7 +394,11 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     return self.numberValue.unsignedIntegerValue;
 }
 
-
+/*!
+ *  获取UUID
+ *
+ *  @return UUID
+ */
 + (NSString *)stringWithUUID {
     CFUUIDRef uuid = CFUUIDCreate(NULL);
     CFStringRef string = CFUUIDCreateString(NULL, uuid);
@@ -389,6 +450,7 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     return [self stringByAppendingFormat:@"@%@x", @(scale)];
 }
 
+
 - (NSString *)stringByAppendingPathScale:(CGFloat)scale {
     if (fabs(scale - 1) <= __FLT_EPSILON__ || self.length == 0 || [self hasSuffix:@"/"]) return self.copy;
     NSString *ext = self.pathExtension;
@@ -397,6 +459,8 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     NSString *scaleStr = [NSString stringWithFormat:@"@%@x", @(scale)];
     return [self stringByReplacingCharactersInRange:extRange withString:scaleStr];
 }
+
+
 
 - (CGFloat)pathScale {
     if (self.length == 0 || [self hasSuffix:@"/"]) return 1;
@@ -408,6 +472,11 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     return scale;
 }
 
+/*!
+ *  是不是空白
+ *
+ *  @return 是 与 否
+ */
 - (BOOL)isNotBlank {
     NSCharacterSet *blank = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     for (NSInteger i = 0; i < self.length; ++i) {
@@ -419,28 +488,62 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     return NO;
 }
 
+/*!
+ *  判断是否是子串
+ *
+ *  @param string 子串
+ *
+ *  @return YES or NO
+ */
 - (BOOL)containsString:(NSString *)string {
     if (string == nil) return NO;
     return [self rangeOfString:string].location != NSNotFound;
 }
 
+/*!
+ *  字符串里是否包含某个字符集
+ *
+ *  @param set 字符集
+ *
+ *  @return YES or NO
+ */
 - (BOOL)containsCharacterSet:(NSCharacterSet *)set {
     if (set == nil) return NO;
     return [self rangeOfCharacterFromSet:set].location != NSNotFound;
 }
 
+/*!
+ *  字符串转NSNumber
+ *
+ *  @return NSNumber类型
+ */
 - (NSNumber *)numberValue {
     return [NSNumber numberWithString:self];
 }
 
+/*!
+ *  字符转二进制
+ *
+ *  @return 返回二进制
+ */
 - (NSData *)dataValue {
     return [self dataUsingEncoding:NSUTF8StringEncoding];
 }
 
+/*!
+ *  返回字符串所有范围
+ *
+ *  @return <#return value description#>
+ */
 - (NSRange)rangeOfAll {
     return NSMakeRange(0, self.length);
 }
 
+/*!
+ *  json字符串转为归档对象
+ *
+ *  @return 对象???
+ */
 - (id)jsonValueDecoded {
     return [[self dataValue] jsonValueDecoded];
 }
