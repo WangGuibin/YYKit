@@ -80,7 +80,7 @@ typedef NS_OPTIONS(NSUInteger, YYNetworkTrafficType) {
     YYNetworkTrafficTypeAWDLSent     = 1 << 4,
     YYNetworkTrafficTypeAWDLReceived = 1 << 5,
     
-    YYNetworkTrafficTypeWWAN = YYNetworkTrafficTypeWWANSent | YYNetworkTrafficTypeWWANReceived,
+    YYNetworkTrafficTypeWWAN = YYNetworkTrafficTypeWWANSent | YYNetworkTrafficTypeWWANReceived,//3G,4G
     YYNetworkTrafficTypeWIFI = YYNetworkTrafficTypeWIFISent | YYNetworkTrafficTypeWIFIReceived,
     YYNetworkTrafficTypeAWDL = YYNetworkTrafficTypeAWDLSent | YYNetworkTrafficTypeAWDLReceived,
     
@@ -168,6 +168,12 @@ typedef NS_OPTIONS(NSUInteger, YYNetworkTrafficType) {
 @end
 
 
+/*!
+ *  @author WGB, 16-04-06 00:04:49
+ *
+ *  判断系统版本
+ *
+ */
 #ifndef kSystemVersion
 #define kSystemVersion [UIDevice systemVersion]
 #endif

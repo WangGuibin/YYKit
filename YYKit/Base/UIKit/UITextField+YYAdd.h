@@ -18,12 +18,13 @@
 
 /**
  Set all text selected.
+ 选择所有文本
  */
 - (void)selectAllText;
 
 /**
  Set text in range selected.
- 
+ 设置文本选择的范围
  @param range  The range of selected text in a document.
  */
 - (void)setSelectedRange:(NSRange)range;
