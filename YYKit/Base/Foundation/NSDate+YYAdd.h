@@ -25,19 +25,33 @@
 @property (nonatomic, readonly) NSInteger year; ///< Year component
 @property (nonatomic, readonly) NSInteger month; ///< Month component (1~12)
 @property (nonatomic, readonly) NSInteger day; ///< Day component (1~31)
+
 @property (nonatomic, readonly) NSInteger hour; ///< Hour component (0~23)
+
 @property (nonatomic, readonly) NSInteger minute; ///< Minute component (0~59)
+
 @property (nonatomic, readonly) NSInteger second; ///< Second component (0~59)
+
 @property (nonatomic, readonly) NSInteger nanosecond; ///< Nanosecond component
+
 @property (nonatomic, readonly) NSInteger weekday; ///< Weekday component (1~7, first day is based on user setting)
+
 @property (nonatomic, readonly) NSInteger weekdayOrdinal; ///< WeekdayOrdinal component
+/**  一个月第几个星期  */
 @property (nonatomic, readonly) NSInteger weekOfMonth; ///< WeekOfMonth component (1~5)
+/**  一年第几个星期  */
 @property (nonatomic, readonly) NSInteger weekOfYear; ///< WeekOfYear component (1~53)
+
 @property (nonatomic, readonly) NSInteger yearForWeekOfYear; ///< YearForWeekOfYear component
+
 @property (nonatomic, readonly) NSInteger quarter; ///< Quarter component
+/** 是否 闰月  */
 @property (nonatomic, readonly) BOOL isLeapMonth; ///< whether the month is leap month
+/**  是否 闰年  */
 @property (nonatomic, readonly) BOOL isLeapYear; ///< whether the year is leap year
+/**  是否今天 (基于当地时间)  */
 @property (nonatomic, readonly) BOOL isToday; ///< whether date is today (based on current locale)
+/**  是否昨天  */
 @property (nonatomic, readonly) BOOL isYesterday; ///< whether date is yesterday (based on current locale)
 
 #pragma mark - Date modify

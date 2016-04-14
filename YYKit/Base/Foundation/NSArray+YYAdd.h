@@ -22,6 +22,7 @@
  @param plist   A property list data whose root object is an array.
  @return A new array created from the binary plist data, or nil if an error occurs.
  */
+/**  二进制plist 转 array  */
 + (NSArray *)arrayWithPlistData:(NSData *)plist;
 
 /**
@@ -30,6 +31,7 @@
  @param plist   A property list xml string whose root object is an array.
  @return A new array created from the plist string, or nil if an error occurs.
  */
+/**  字符串plist 转 array  */
 + (NSArray *)arrayWithPlistString:(NSString *)plist;
 
 /**

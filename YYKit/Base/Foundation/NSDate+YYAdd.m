@@ -18,30 +18,36 @@ YYSYNTH_DUMMY_CLASS(NSDate_YYAdd)
 
 @implementation NSDate (YYAdd)
 
+/**  获取年份  */
 - (NSInteger)year {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:self] year];
 }
-
+/**  月份  */
 - (NSInteger)month {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitMonth fromDate:self] month];
 }
 
+/**  天  */
 - (NSInteger)day {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitDay fromDate:self] day];
 }
 
+/**  小时  */
 - (NSInteger)hour {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitHour fromDate:self] hour];
 }
 
+/**  分  */
 - (NSInteger)minute {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitMinute fromDate:self] minute];
 }
 
+/**  秒  */
 - (NSInteger)second {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitSecond fromDate:self] second];
 }
 
+/**  纳秒  */
 - (NSInteger)nanosecond {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitSecond fromDate:self] nanosecond];
 }
@@ -111,6 +117,7 @@ YYSYNTH_DUMMY_CLASS(NSDate_YYAdd)
 }
 
 - (NSDate *)dateByAddingDays:(NSInteger)days {
+    /**  1天=86400 s  */
     NSTimeInterval aTimeInterval = [self timeIntervalSinceReferenceDate] + 86400 * days;
     NSDate *newDate = [NSDate dateWithTimeIntervalSinceReferenceDate:aTimeInterval];
     return newDate;

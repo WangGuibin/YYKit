@@ -23,7 +23,7 @@ YYSYNTH_DUMMY_CLASS(NSTimer_YYAdd)
         block(timer);
     }
 }
-
+/**  添加一个定时器  */
 + (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)seconds block:(void (^)(NSTimer *timer))block repeats:(BOOL)repeats {
     return [NSTimer scheduledTimerWithTimeInterval:seconds target:self selector:@selector(_yy_ExecBlock:) userInfo:[block copy] repeats:repeats];
 }

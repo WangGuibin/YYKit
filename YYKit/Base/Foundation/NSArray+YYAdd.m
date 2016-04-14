@@ -17,7 +17,7 @@ YYSYNTH_DUMMY_CLASS(NSArray_YYAdd)
 
 
 @implementation NSArray (YYAdd)
-
+/**  plist 转 array  */
 + (NSArray *)arrayWithPlistData:(NSData *)plist {
     if (!plist) return nil;
     NSArray *array = [NSPropertyListSerialization propertyListWithData:plist options:NSPropertyListImmutable format:NULL error:NULL];
