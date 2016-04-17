@@ -11,6 +11,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Provides extensions for `UIBezierPath`. ///贝塞尔曲线路径
  */
@@ -31,6 +33,8 @@
  
  @return A new path object with the text and font, or nil if an error occurs.
  */
-+ (UIBezierPath *)bezierPathWithText:(NSString *)text font:(UIFont *)font;
++ (nullable UIBezierPath *)bezierPathWithText:(NSString *)text font:(UIFont *)font;
 
 @end
+
+NS_ASSUME_NONNULL_END

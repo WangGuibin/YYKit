@@ -36,7 +36,7 @@ dispatch_semaphore_signal(_lock);
 
 - (instancetype)init {
     @throw [NSException exceptionWithName:@"YYTimer init error" reason:@"Use the designated initializer to init." userInfo:nil];
-    return [self initWithFireTime:0 interval:0 target:nil selector:NULL repeats:NO];
+    return [self initWithFireTime:0 interval:0 target:self selector:@selector(invalidate) repeats:NO];
 }
 
 - (instancetype)initWithFireTime:(NSTimeInterval)start
@@ -74,18 +74,14 @@ dispatch_semaphore_signal(_lock);
 - (void)fire {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    id target;
-    SEL selector;
     dispatch_semaphore_wait(_lock, DISPATCH_TIME_FOREVER);
-    target = _target;
-    selector = _selector;
-    if (!_repeats || !_target) {
+    id target = _target;
+    if (!_repeats || !target) {
         dispatch_semaphore_signal(_lock);
-        [_target performSelector:_selector withObject:self];
         [self invalidate];
     } else {
         dispatch_semaphore_signal(_lock);
-        [_target performSelector:_selector withObject:self];
+        [target performSelector:_selector withObject:self];
     }
 #pragma clang diagnostic pop
 }

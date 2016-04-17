@@ -300,6 +300,7 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     return [pattern stringByReplacingMatchesInString:self options:0 range:NSMakeRange(0, [self length]) withTemplate:replacement];
 }
 
+<<<<<<< HEAD
 /*!
  *  判断字符串里是否包含表情
  *
@@ -356,6 +357,8 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     return regexRange.location != NSNotFound;
 }
 
+=======
+>>>>>>> ibireme/master
 - (char)charValue {
     return self.numberValue.charValue;
 }

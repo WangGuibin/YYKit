@@ -11,6 +11,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Provide some some common method for `NSArray`.
  */
@@ -22,8 +24,12 @@
  @param plist   A property list data whose root object is an array.
  @return A new array created from the binary plist data, or nil if an error occurs.
  */
+<<<<<<< HEAD
 /**  二进制plist 转 array  */
 + (NSArray *)arrayWithPlistData:(NSData *)plist;
+=======
++ (nullable NSArray *)arrayWithPlistData:(NSData *)plist;
+>>>>>>> ibireme/master
 
 /**
  Creates and returns an array from a specified property list xml string.
@@ -31,22 +37,26 @@
  @param plist   A property list xml string whose root object is an array.
  @return A new array created from the plist string, or nil if an error occurs.
  */
+<<<<<<< HEAD
 /**  字符串plist 转 array  */
 + (NSArray *)arrayWithPlistString:(NSString *)plist;
+=======
++ (nullable NSArray *)arrayWithPlistString:(NSString *)plist;
+>>>>>>> ibireme/master
 
 /**
  Serialize the array to a binary property list data.
  
  @return A binary plist data, or nil if an error occurs.
  */
-- (NSData *)plistData;
+- (nullable NSData *)plistData;
 
 /**
  Serialize the array to a xml property list string.
  
  @return A plist xml string, or nil if an error occurs.
  */
-- (NSString *)plistString;
+- (nullable NSString *)plistString;
 
 /**
  Returns the object located at a random index.
@@ -54,7 +64,7 @@
  @return The object in the array with a random index value.
  If the array is empty, returns nil.
  */
-- (id)randomObject;
+- (nullable id)randomObject;
 
 /**
  Returns the object located at index, or return nil when out of bounds.
@@ -62,21 +72,18 @@
  
  @param index The object located at index.
  */
-- (id)objectOrNilAtIndex:(NSUInteger)index;
+- (nullable id)objectOrNilAtIndex:(NSUInteger)index;
 
 /**
  Convert object to json string. return nil if an error occurs.
  NSString/NSNumber/NSDictionary/NSArray
  */
-- (NSString *)jsonStringEncoded;
+- (nullable NSString *)jsonStringEncoded;
 
 /**
  Convert object to json string formatted. return nil if an error occurs.
  */
-- (NSString *)jsonPrettyStringEncoded;
-
-
-
+- (nullable NSString *)jsonPrettyStringEncoded;
 
 @end
 
@@ -92,7 +99,7 @@
  @param plist   A property list data whose root object is an array.
  @return A new array created from the binary plist data, or nil if an error occurs.
  */
-+ (NSMutableArray *)arrayWithPlistData:(NSData *)plist;
++ (nullable NSMutableArray *)arrayWithPlistData:(NSData *)plist;
 
 /**
  Creates and returns an array from a specified property list xml string.
@@ -100,7 +107,7 @@
  @param plist   A property list xml string whose root object is an array.
  @return A new array created from the plist string, or nil if an error occurs.
  */
-+ (NSMutableArray *)arrayWithPlistString:(NSString *)plist;
++ (nullable NSMutableArray *)arrayWithPlistString:(NSString *)plist;
 
 /**
  Removes the object with the lowest-valued index in the array.
@@ -126,7 +133,7 @@
  
  @return The first object, or nil.
  */
-- (id)popFirstObject;
+- (nullable id)popFirstObject;
 
 /**
  Removes and returns the object with the highest-valued index in the array.
@@ -134,7 +141,7 @@
  
  @return The first object, or nil.
  */
-- (id)popLastObject;
+- (nullable id)popLastObject;
 
 /**
  Inserts a given object at the end of the array.
@@ -195,3 +202,5 @@
 - (void)shuffle;
 
 @end
+
+NS_ASSUME_NONNULL_END

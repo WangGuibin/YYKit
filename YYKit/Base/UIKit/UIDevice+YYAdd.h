@@ -11,6 +11,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Provides extensions for `UIDevice`.
  */
@@ -23,7 +25,7 @@
 ///=============================================================================
 
 /// Device system version (e.g. 8.1)
-+ (float)systemVersion;
++ (double)systemVersion;
 
 /// Whether the device is iPad/iPad mini.
 @property (nonatomic, readonly) BOOL isPad;
@@ -55,10 +57,10 @@
 ///=============================================================================
 
 /// WIFI IP address of this device (can be nil). e.g. @"192.168.1.111"
-@property (nonatomic, readonly) NSString *ipAddressWIFI;
+@property (nullable, nonatomic, readonly) NSString *ipAddressWIFI;
 
 /// Cell IP address of this device (can be nil). e.g. @"10.2.2.222"
-@property (nonatomic, readonly) NSString *ipAddressCell;
+@property (nullable, nonatomic, readonly) NSString *ipAddressCell;
 
 
 /**
@@ -162,10 +164,17 @@ typedef NS_OPTIONS(NSUInteger, YYNetworkTrafficType) {
 /// Current CPU usage, 1.0 means 100%. (-1 when error occurs) 当前CPU的使用率
 @property (nonatomic, readonly) float cpuUsage;
 
+<<<<<<< HEAD
 /// Current CPU usage per processor (array of NSNumber), 1.0 means 100%. (nil when error occurs) 每个处理器的...
 @property (nonatomic, readonly) NSArray *cpuUsagePerProcessor;
+=======
+/// Current CPU usage per processor (array of NSNumber), 1.0 means 100%. (nil when error occurs)
+@property (nullable, nonatomic, readonly) NSArray<NSNumber *> *cpuUsagePerProcessor;
+>>>>>>> ibireme/master
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 
 /*!
