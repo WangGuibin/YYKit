@@ -50,7 +50,7 @@
 
 /**
  Returns the object located at a random index.
- 
+ 返回随机下标
  @return The object in the array with a random index value.
  If the array is empty, returns nil.
  */

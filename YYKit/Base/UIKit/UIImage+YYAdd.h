@@ -32,9 +32,9 @@
                  gif such as animated emoticon. If you want to display large gif, 
                  see `YYImage`.
  
- @param data     GIF data.
+ @param data     GIF data. 动态图
  
- @param scale    The scale factor
+ @param scale    The scale factor 压缩倍率
  
  @return A new image created from GIF, or nil when an error occurs.
  */
@@ -45,7 +45,7 @@
  
  @param data Image data
  
- @return Returns YES only if the data is gif and contains more than one frame,
+ @return Returns YES only if the data is gif and contains more than one frame,  判断是否gif
          otherwise returns NO.
  */
 + (BOOL)isAnimatedGIFData:(NSData *)data;
@@ -95,7 +95,7 @@
  
  @param emoji single emoji, such as @"😄".
  
- @param size  image's size.
+ @param size  image's size.  在图片上加表情  666
  
  @return Image from emoji, or nil when an error occurs.
  */
@@ -103,7 +103,7 @@
 
 /**
  Create and return a 1x1 point size image with the given color.
- 
+ 设置填充色的图片  也就是一张纯颜色的图片 1x1像素点
  @param color  The color.
  */
 + (UIImage *)imageWithColor:(UIColor *)color;
@@ -112,16 +112,16 @@
  Create and return a pure color image with the given color and size.
  
  @param color  The color.
- @param size   New image's type.
+ @param size   New image's type. 可自定义像素点
  */
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 
 /**
  Create and return an image with custom draw code.
  
- @param size      The image size.
+ @param size      The image size. 自定义图片大小
  @param drawBlock The draw block.
- 
+ block传一个上下文出去  自定义画图
  @return The new image.
  */
 + (UIImage *)imageWithSize:(CGSize)size drawBlock:(void (^)(CGContextRef context))drawBlock;
@@ -132,29 +132,31 @@
 ///=============================================================================
 
 /**
- Whether this image has alpha channel.
+ Whether this image has alpha channel. 判断图片有木有阿尔法通道
  */
 - (BOOL)hasAlphaChannel;
 
 
-#pragma mark - Modify Image
+#pragma mark - Modify Image 改变图片
 ///=============================================================================
 /// @name Modify Image
 ///=============================================================================
 
 /**
  Draws the entire image in the specified rectangle, content changed with
- the contentMode.
+ the contentMode.  画项目图片在一些特定的矩形框里,内容可以由contentMode来改变
  
- @discussion This method draws the entire image in the current graphics context, 
- respecting the image's orientation setting. In the default coordinate system, 
+ @discussion This method draws the entire image in the current graphics context,  这个方法画图片,是在当前上下文
+ respecting the image's orientation setting.  考虑到图片的适应
+ In the default coordinate system,系统默认情况下
  images are situated down and to the right of the origin of the specified 
- rectangle. This method respects any transforms applied to the current graphics 
- context, however.
+ rectangle. 图片坐落在矩形框的右边
+ This method respects any transforms applied to the current graphics
+ context, however.这个方法可以利用矩形框 让当前上下文仿射变换
  
- @param rect        The rectangle in which to draw the image.
+ @param rect        The rectangle in which to draw the image. 矩形框
  
- @param contentMode Draw content mode
+ @param contentMode Draw content mode  contentMode
  
  @param clips       A Boolean value that determines whether content are confined to the rect.
  */
@@ -266,27 +268,32 @@
 /**
  Returns a new image rotated counterclockwise by a quarter‑turn (90°). ⤺
  The width and height will be exchanged.
+ 左转90
  */
 - (UIImage *)imageByRotateLeft90;
 
 /**
  Returns a new image rotated clockwise by a quarter‑turn (90°). ⤼
  The width and height will be exchanged.
+  右转90
  */
 - (UIImage *)imageByRotateRight90;
 
 /**
  Returns a new image rotated 180° . ↻
+ 旋转180
  */
 - (UIImage *)imageByRotate180;
 
 /**
  Returns a vertically flipped image. ⥯
+ 上下翻转
  */
 - (UIImage *)imageByFlipVertical;
 
 /**
  Returns a horizontally flipped image. ⇋
+ 水平翻转
  */
 - (UIImage *)imageByFlipHorizontal;
 

@@ -18,7 +18,7 @@
 
 /**
  Perform a series of method calls that insert, delete, or select rows and
- sections of the receiver.
+ sections of the receiver.执行一系列的方法 插入,删除,选择和组头等的接收.
  
  @discussion Perform a series of method calls that insert, delete, or select
              rows and sections of the table. Call this method if you want
@@ -38,7 +38,7 @@
 
 /**
  Scrolls the receiver until a row or section location on the screen.
- 
+ 滚动的监听 在屏幕上是哪一组哪一行...
  @discussion            Invoking this method does not cause the delegate to 
                         receive a scrollViewDidScroll: message, as is normal for 
                         programmatically-invoked user interface operations.
@@ -52,17 +52,17 @@
                         receiving table view (top, middle, bottom) for row when 
                         scrolling concludes.
  
- @param animated        YES if you want to animate the change in position,
-                        NO if it should be immediate.
+ @param animated        YES if you want to animate the change in position,动画改变
+                        NO if it should be immediate. 立即
  */
 - (void)scrollToRow:(NSUInteger)row inSection:(NSUInteger)section atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated;
 
 /**
  Inserts a row in the receiver with an option to animate the insertion.
+ 带有动画的插入
+ @param row        Row index in section. 行
  
- @param row        Row index in section.
- 
- @param section    Section index in table.
+ @param section    Section index in table. 组
  
  @param animation  A constant that either specifies the kind of animation to
                    perform when inserting the cell or requests no animation. 
@@ -71,7 +71,7 @@
 
 /**
  Reloads the specified row using a certain animation effect.
- 
+ 刷新特别的组  用一些动画效果
  @param row        Row index in section.
  
  @param section    Section index in table.
@@ -87,7 +87,7 @@
 
 /**
  Deletes the row with an option to animate the deletion.
- 
+ 删除某个cell 可设置一些动画效果
  @param row        Row index in section.
  
  @param section    Section index in table.
@@ -111,7 +111,7 @@
 
 /**
  Reloads the specified row using a certain animation effect.
- 
+ 单纯的刷新 带有动画的效果
  @param indexPath  An NSIndexPath object representing a row index and section
                    index that together identify a row in the table view.
  
@@ -138,7 +138,7 @@
 
 /**
  Inserts a section in the receiver, with an option to animate the insertion.
- 
+ 插入一组
  @param section    An index specifies the section to insert in the receiving
                    table view. If a section already exists at the specified 
                    index location, it is moved down one index location.
@@ -150,7 +150,7 @@
 
 /**
  Deletes a section in the receiver, with an option to animate the deletion.
- 
+ 删除一组
  @param section    An index that specifies the sections to delete from the 
                    receiving table view. If a section exists after the specified
                    index location, it is moved up one index location.
@@ -176,7 +176,7 @@
 
 /**
  Unselect all rows in tableView.
- 
+ 取消选择 搞些动画效果
  @param animated YES to animate the transition, NO to make the transition immediate.
  */
 - (void)clearSelectedRowsAnimated:(BOOL)animated;

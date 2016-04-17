@@ -203,6 +203,7 @@ void YY_HSL2HSB(CGFloat h, CGFloat s, CGFloat l,
                saturation:(CGFloat)saturation
                 lightness:(CGFloat)lightness
                     alpha:(CGFloat)alpha {
+
     CGFloat r, g, b;
     YY_HSL2RGB(hue, saturation, lightness, &r, &g, &b);
     return [UIColor colorWithRed:r green:g blue:b alpha:alpha];

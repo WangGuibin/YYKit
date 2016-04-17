@@ -314,7 +314,8 @@ static force_inline id YYValueForMultiKeys(__unsafe_unretained NSDictionary *dic
     meta->_type = propertyInfo.type;
     meta->_info = propertyInfo;
     meta->_genericCls = generic;
-    
+
+
     if ((meta->_type & YYEncodingTypeMask) == YYEncodingTypeObject) {
         meta->_nsType = YYClassGetNSType(propertyInfo.cls);
     } else {

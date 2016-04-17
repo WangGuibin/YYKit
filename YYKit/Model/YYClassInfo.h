@@ -63,7 +63,7 @@ typedef NS_OPTIONS(NSUInteger, YYEncodingType) {
 
 /**
  Get the type from a Type-Encoding string.
- 
+  利用 runtime 遍历属性
  @discussion See also:
  https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html
  https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtPropertyIntrospection.html

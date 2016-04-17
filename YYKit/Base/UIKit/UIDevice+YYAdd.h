@@ -115,13 +115,13 @@ typedef NS_OPTIONS(NSUInteger, YYNetworkTrafficType) {
 /// @name Disk Space
 ///=============================================================================
 
-/// Total disk space in byte. (-1 when error occurs)
+/// Total disk space in byte. (-1 when error occurs) 总磁盘空间
 @property (nonatomic, readonly) int64_t diskSpace;
 
-/// Free disk space in byte. (-1 when error occurs)
+/// Free disk space in byte. (-1 when error occurs) 可用磁盘空间
 @property (nonatomic, readonly) int64_t diskSpaceFree;
 
-/// Used disk space in byte. (-1 when error occurs)
+/// Used disk space in byte. (-1 when error occurs) 已用磁盘空间
 @property (nonatomic, readonly) int64_t diskSpaceUsed;
 
 
@@ -130,7 +130,7 @@ typedef NS_OPTIONS(NSUInteger, YYNetworkTrafficType) {
 /// @name Memory Information
 ///=============================================================================
 
-/// Total physical memory in byte. (-1 when error occurs)
+/// Total physical memory in byte. (-1 when error occurs) 物理 总内存
 @property (nonatomic, readonly) int64_t memoryTotal;
 
 /// Used (active + inactive + wired) memory in byte. (-1 when error occurs)
@@ -159,10 +159,10 @@ typedef NS_OPTIONS(NSUInteger, YYNetworkTrafficType) {
 /// Avaliable CPU processor count.
 @property (nonatomic, readonly) NSUInteger cpuCount;
 
-/// Current CPU usage, 1.0 means 100%. (-1 when error occurs)
+/// Current CPU usage, 1.0 means 100%. (-1 when error occurs) 当前CPU的使用率
 @property (nonatomic, readonly) float cpuUsage;
 
-/// Current CPU usage per processor (array of NSNumber), 1.0 means 100%. (nil when error occurs)
+/// Current CPU usage per processor (array of NSNumber), 1.0 means 100%. (nil when error occurs) 每个处理器的...
 @property (nonatomic, readonly) NSArray *cpuUsagePerProcessor;
 
 @end

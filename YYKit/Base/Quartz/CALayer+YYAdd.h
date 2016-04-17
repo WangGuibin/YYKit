@@ -19,25 +19,28 @@
 
 /**
  Take snapshot without transform, image's size equals to bounds.
+ 截图
  */
 - (UIImage *)snapshotImage;
 
 /**
  Take snapshot without transform, PDF's page size equals to bounds.
+ 截图PDF
  */
 - (NSData *)snapshotPDF;
 
 /**
  Shortcut to set the layer's shadow
- 
- @param color  Shadow Color
- @param offset Shadow offset
- @param radius Shadow radius
+ 简化设置阴影
+ @param color  Shadow Color 阴影颜色
+ @param offset Shadow offset 阴影偏移
+ @param radius Shadow radius 弧度
  */
 - (void)setLayerShadow:(UIColor*)color offset:(CGSize)offset radius:(CGFloat)radius;
 
 /**
  Remove all sublayers.
+ 移除掉所有的子layer
  */
 - (void)removeAllSublayers;
 
@@ -53,7 +56,7 @@
 @property (nonatomic) CGPoint origin;      ///< Shortcut for frame.origin.
 @property (nonatomic, getter=frameSize, setter=setFrameSize:) CGSize  size; ///< Shortcut for frame.size.
 
-
+#pragma mark- KeyPath
 @property (nonatomic) CGFloat transformRotation;     ///< key path "tranform.rotation"
 @property (nonatomic) CGFloat transformRotationX;    ///< key path "tranform.rotation.x"
 @property (nonatomic) CGFloat transformRotationY;    ///< key path "tranform.rotation.y"
